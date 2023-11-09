@@ -1,7 +1,9 @@
+import './Task.css';
+
 function Task(props) {
-	const itsImportantStyle = {
-		color: 'red',
-	};
+	// const itsImportantStyle = {
+	// 	color: 'red',
+	// };
 	const { text, date, id, active, important, finishDate } = props.taskNew; //destrukturyzacja, potem zamiast pisać props.taskNew.text wystarczy text, dodajemy kolejne elementy z tablicy obiektów które będą używane, czyli jak potrzebuje statusu to dodaje active i potem użyje jako props.taskNew.active (po destrukturyzacji samo active niżej)
 
 	if (active) {
@@ -9,10 +11,9 @@ function Task(props) {
 			<div>
 				<p>
 					{/* <strong>{props.taskNew.text}</strong> */}
-					<strong style={important ? itsImportantStyle : null}>
+					<strong className={important ? 'important' : null}>
 						{text}
-					</strong>{' '}
-					do <span>{date} </span>
+					</strong> do <span>{date} </span>
 					<button onClick={() => props.changeTaskStatus(id)}>
 						Zmień status
 					</button>

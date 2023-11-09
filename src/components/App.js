@@ -108,7 +108,7 @@ class App extends React.Component {
 	};
 	render() {
 		return (
-			<div className='App'>
+			<div className='app'>
 				<h1>TO DO APP - tytuł aplikacji</h1>
 				<AddTask add={this.addTask} />
 				{/* po przekazaniu tym propsem metody addTask możemy z niej korzystac w komponencie AddTask np innej metodzie, np. handleClick */}

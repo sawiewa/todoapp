@@ -6,7 +6,20 @@ const TaskList = (props) => {
 	const done = props.tasks.filter((task) => task.active === false);
 	// console.log(active);
 	// console.log(done);
+	done.sort((a, b) => {
+		return b.finishDate - a.finishDate; //sortowanie malejące po dacie
+	});
 
+	active.sort((a, b) => {
+		a = a.text.toLowerCase();
+		b = b.text.toLowerCase();
+		if (a < b) {
+			return -1; //jeżeli jest mniejsze niz zero to ma mniejszy index niz b
+		} else if (a > b) {
+			//>0 to ma większy index niz b
+			return 1;
+		} else return 0; //jezeli 0 to nic sie nie zmienia w indexach
+	});
 	const activeTasks = active.map((task) => (
 		<Task
 			key={task.id}
